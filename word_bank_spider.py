@@ -11,16 +11,16 @@ html = etree.HTML(content)
 data_href_list = html.xpath('//ul[@class="catalog-list-items"]//li//a//@href')
 
 con = pymysql.connect(
-        host='111.230.149.22',
+        host='******',
         port=3306,
         db='word_bank',
-        password='liu3226677',
+        password='******',
         user='root',
         charset='utf8'
 )
 cur = con.cursor()
 
-redis = Redis(host='localhost', port=6379, password='liu3226677')
+redis = Redis(host='localhost', port=6379, password='*******')
 redis.delete('bank_url')
 for href in data_href_list:
     redis.lpush('bank_url', href)
